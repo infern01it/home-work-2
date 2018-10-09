@@ -31,7 +31,6 @@ function pointermove_handler(ev) {
 
 	/* Движение 1 пальца влево/вправо */
 	if (evCache.length == 1) {
-		var glr = document.querySelector('.gallery__text');
 		if( prevXcoords > 0 ) {
 			/* Движение в право */
 			if( prevXcoords > evCache[0].clientX ) {
