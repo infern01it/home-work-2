@@ -1,0 +1,68 @@
+html,
+body
+	overflow-x: hidden
+
+body
+	min-width: 320px
+	position: relative
+	font-family: ArialMT
+	font-size: 20px
+	line-height: 23px
+	font-weight: 400
+    color: #333333
+
+section
+	position: relative
+
+srtong, b
+	font-weight: 700
+
+em, i
+	font-style: italic
+
+h1, .h1
+	font-size: 36px
+	font-weight: 700
+	line-height: 42px
+
++media(xs)
+	h1, .h1
+		font-size: 24px
+		line-height: 28px
+
+h2, .h2
+	font-size: 24px
+	font-weight: 700
+	line-height: 28px
+
++media(xs)
+	h2, .h2
+		font-size: 14px
+		line-height: 17px
+
+.btn
+	border: none
+	outline: none !important
+	padding: 0 20px
+	background-color: #ffffff
+	min-width: 132px
+	height: 54px
+	border-radius: 8px
+	font-size: 20px
+	font-weight: 700
+	line-height: 23px
+	color: #000000
+	letter-spacing: 0
+	cursor: pointer
+	+trs(.25s)
+	&_color
+		&_accent
+			background-color: $accent
+		&_gray
+			background-color: #e5e5e5
+	&:hover
+		background-color: $accentHover
+
++media(xs)
+	.btn
+		height: 44px

@@ -1,0 +1,56 @@
+.footer
+	display: flex
+	flex-wrap: wrap
+	width: 100%
+	height: $footerHeight
+	padding: 22px 36px 27px 40px
+	border-top: 1px solid #F0F0F0
+	&__menu,
+	&__corp
+		+b4col(50%)
+
+/* Адаптивной версии подвала не нашел, поэтому просто стилизовал чтоб небыло криво */
++media(xs)
+	.footer
+		height: auto
+		&__menu,
+		&__corp
+			+b4col(100%)
+		&__menu
+			margin-bottom: 20px
+	
+.footer-menu
+	display: flex
+	flex-wrap: wrap
+	&__link
+		display: block
+		&:not(:last-child)
+			margin-right: 16px
+
++media(xs)
+	.footer-menu
+		&__link
+			width: 50%
+			&:not(:last-child)
+				margin-bottom: 5px
+				margin-right: 0
+	
+.ya-corp
+	text-align: right
+
++media(xs)
+	.ya-corp
+		text-align: center
+	
+.small-text
+	font-size: 12px
+	font-weight: 400
+	line-height: 14px
+	letter-spacing: 0.01px
+	color: $gray
+	a
+		color: inherit
+		text-decoration: none !important
+		+trs(.25s, color, ease-out)
+	a:hover, a:focus
+		color: $dark

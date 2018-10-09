@@ -1,0 +1,54 @@
+// Общие настройки
+$font-formats: ("eot", "woff", "ttf"); // Доступны в snippets - eot, woff2, woff, ttf, svg
+$url-img: '/img';
+$url-font: '/fonts';
+
+// Цвета
+$black: #000;
+$dark: #333;
+$gray: #858585;
+$card: #f7f7f7;
+$accent: #ffd93e;
+$accentHover: #ffcd00;
+
+// Размеры
+$headerHeightLg: 92px;
+$headerHeightXs: 64px;
+
+$footerHeight: 64px;
+$mainCardWidth: 200px;
+
+$pagePaddingLg: 40px;
+$pagePaddingXs: 20px;
+
+// Настройки адаптивности 
+$breakpoints: (
+	'xs': 0,
+	'sm': 768px,
+	'md': 1024px,
+	'lg': 1396px
+) !default;
+
+$max-widths: (
+	'xs': 100%,
+	'sm': 720px,
+	'md': 960px,
+	'lg': 1366px
+) !default;
+
+// Customization Bootstrap vars from "bootstrap/_variables.scss"
+$grid-gutter-width: 20px;
+$grid-columns: 12;
+
+$grid-breakpoints: (
+	'xs': map-get($breakpoints, 'xs'),
+	'sm': map-get($breakpoints, 'sm'),
+	'md': map-get($breakpoints, 'md'),
+	'lg': map-get($breakpoints, 'lg')
+);
+
+$container-max-widths: (
+	'sm': map-get($max-widths, 'sm'),
+	'md': map-get($max-widths, 'md'),
+	'lg': map-get($max-widths, 'lg')
+);

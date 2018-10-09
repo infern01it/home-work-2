@@ -1,0 +1,85 @@
+.header
+	display: flex
+	align-items: center
+	width: 100%
+	height: $headerHeightLg
+	padding: 0 $pagePaddingLg
+	border-bottom: 1px solid #f0f0f0
+	&__logo
+		margin-right: 20px // По макету 21, но наверно имелось ввиду 20
+		height: 27px
+		img
+			height: 100%
+			width: auto
+	&__menu
+		height: 20px
+	&__btn-menu-xs
+		display: none
+
++media(sm)
+	.header
+		position: fixed
+		z-index: 100
+		top: 0
+		left: 0
+		padding: 12px $pagePaddingXs 13px
+		height: $headerHeightXs
+		border-bottom: none
+		background-color: #fff
+
++media(xs)
+	.header
+		justify-content: space-between
+		&__btn-menu-xs
+			display: block
+			width: 16px
+			height: 14px
+	
+/* Логотип Яндекса */
+.ya-logo
+	display: block
+	&__svg
+		display: block
+		width: auto
+		height: 100%
+
+/* Бургер для мобильной версии */
+.btn-menu-xs
+	padding: 0
+	outline: none !important
+	border: none
+	background-color: transparent
+	width: 30px
+	height: 30px
+	display: flex
+	justify-content: center
+	align-items: center
+	transform: translate(-8px, -7px)
+	&__img
+		width: 16px
+		height: 14px
+
+/* Меню */
+.header-menu
+	+clearfix
+	&__link
+		display: block
+		float: left
+		font-size: 17px
+		font-weight: 700
+		line-height: 20px
+		color: rgba($dark, .6)
+		text-decoration: none !important
+		+trs(.25s, color, ease-out)
+		&:not(:last-child)
+			margin-right: 28px
+		&:hover, &:focus, &_active
+			color: $dark
+
++media(xs)
+	.header-menu
+		display: none
+		&.display
+			display: block
+		&.visible
+			opacity: 1

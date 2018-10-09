@@ -1,0 +1,416 @@
+.b-content
+    p
+        margin: 0 0 10px
+    *:last-child
+        margin: 0
+
+/* Карточка события */
+.event
+    $p: &
+    position: relative
+    background-color: #fafafa
+    border-radius: 20px
+    overflow: hidden
+    display: flex
+    flex-direction: column
+    transition: all .2s ease-out
+    &__head
+        border-radius: 20px 20px 0 0
+        background-color: #fafafa
+        transition: all .2s ease-out
+    &__body
+        margin-top: -20px
+        border-radius: 20px
+        background-color: #fafafa
+        flex-basis: 100%
+        transition: all .2s ease-out
+    &__btn-top,
+    &__btn-bot
+        position: absolute
+        right: 20px
+        padding: 0
+        background-color: transparent
+        border: none
+        outline: none !important
+        opacity: 0
+        transition: all .2s ease-out
+        cursor: pointer
+    &__btn-top
+        top: 20px
+    &__btn-bot
+        bottom: 20px
+    &_danger
+        #{$p}
+            &__head
+                background-color: #DB5341
+                color: #ffffff
+    &:hover
+        background-color: #F3F3F3
+        box-shadow: 0 2px 6px 0 rgba(197,186,186,0.50)
+        #{$p}
+            &__body
+                background-color: #F3F3F3
+            &__btn-top,
+            &__btn-bot
+                opacity: 1
+    &:not(#{$p}_danger):hover
+        #{$p}
+            &__head
+                background-color: #F3F3F3
+
++media(xs)
+    .event
+        padding-bottom: 4px
+        &__body
+            margin-top: -16px
+
+/* Верхняя часть картоки события */
+.card-head
+    $p: &
+    padding: 20px 20px 25px
+    &__top
+        display: flex
+        align-items: center
+        margin-bottom: 20px // тут сделал 20, т.к. мне кажется что на 1й карточке ошибочно сделано 16
+    &__bottom
+        display: flex
+        flex-wrap: wrap
+    &__icon
+        width: 52px
+        height: 52px
+    &__title-wrap
+        margin: -2px 0 -2px 16px
+        display: flex
+        justify-content: flex-start
+        align-items: center
+    &__title
+        margin: 0
+        max-height: 56px
+        overflow: hidden
+    &__device,
+    &__time
+        font-size: 18px
+        line-height: 21px
+    &__device
+        +b4col(70%)
+    &__time
+        +b4col(30%)
+        text-align: right
+    &_danger
+        padding: 20px 20px 40px
+    &_size_s
+        #{$p}
+            &__device,
+            &__time
+                +b4col(100%)
+            &__device
+                margin-bottom: 20px
+            &__time
+                text-align: left
+
++media(xs)
+    .card-head
+        $p: &
+        padding: 16px
+        &__top
+            margin-bottom: 16px
+        &__icon
+            width: 36px
+            height: 36px
+        &__title-wrap
+            margin: 0 0 0 16px
+            height: 36px
+        &__title
+            max-height: 36px
+        &__device,
+        &__time
+            font-size: 12px
+            line-height: 14px
+        &_danger
+            padding: 16px 16px 32px
+        &_size_s
+            #{$p}
+                &__device,
+                &__time
+                    +b4col(50%)
+                &__device
+                    margin-bottom: 0
+                &__time
+                    text-align: right
+
+/* Блок информации/управления устройством */
+.card-app
+    $p: &
+    padding: 20px
+    display: flex
+    flex-direction: column
+    justify-content: flex-end
+    &__desc
+        margin-bottom: 30px
+        &_mb_0
+            margin-bottom: 0
+    &__more
+        margin-top: auto
+    &_size
+        &_l
+            #{$p}__desc
+                font-size: 24px
+                line-height: 28px
+        &_m,
+        &_s
+            #{$p}__desc
+                font-size: 20px
+                line-height: 23px
+
++media(xs)
+    .card-app
+        $p: &
+        padding: 16px
+        &__desc
+            margin-top: 20px // Тут в разных местах от 16 до 25... взял что-то среднее
+        &_size
+            &_l,
+            &_m,
+            &_s
+                #{$p}__desc
+                    font-size: 18px
+                    line-height: 22px
+
+/* График */
+.graph
+    img
+        display: block
+        width: 100%
+        height: auto
+        border-radius: 20px
+
+.gallery
+    &__img-wrap
+        position: relative
+        border-radius: 20px
+        overflow: hidden
+    &__img
+        display: block
+        width: 100%
+        height: auto
+    &__img-mobile
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        transition: all .3s linear
+    &__props-mobile
+        margin-top: 20px
+
++media-up(sm)
+    .gallery
+        &__props-mobile,
+        &__img-mobile
+            display: none
+
++media(xs)
+    .gallery
+        position: relative
+        &__img
+            opacity: 0
+
+/* Блок с температурой */
+.card-app-thermal
+    display: flex
+    justify-content: flex-start
+    flex-wrap: wrap
+    &__prop
+        font-size: 18px
+        line-height: 21px
+        &:not(:last-child)
+            margin-right: 52px
+
++media(xs)
+    .card-app-thermal
+        justify-content: space-between
+        &__prop
+            font-size: 14px
+            line-height: 16px
+            &:not(:last-child)
+                margin-right: 0
+
+/* Блок с музыкальным плеером */
+.card-app-music
+    &__top
+        position: relative
+        padding-left: 69px
+        min-height: 52px
+        margin-bottom: 20px
+    &__bottom
+        display: flex
+        align-items: center
+    &__img
+        position: absolute
+        top: 0
+        left: 0
+        width: 53px
+        height: 52px
+        object-fit: cover
+        object-position: 50% 50%
+    &__title
+        display: inline-block
+        font-size: 20px
+        line-height: 23px
+        color: #000000
+        margin: 0 0 9px
+    &__track-time
+    &__prev,
+    &__next
+        display: block
+        padding: 0
+        border: none
+        outline: none !important
+        cursor: pointer
+        background-color: transparent
+    &__prev
+        margin-right: 27px
+    &__next
+        margin-right: 13px
+        img
+            transform: rotate(-180deg)
+    &__track-volume
+
+/* Слайдер-ползунок (не знаю как еще его назвать) */
+.range-slider
+    $p: &
+    position: relative
+    width: 100%
+    padding-right: 44px
+    &__track
+        position: relative
+        height: inherit
+        display: flex
+        align-items: center
+    &__input
+        display: block
+        width: 100%
+        -webkit-appearance: none
+        outline: none !important
+        cursor: pointer
+        &::-moz-range-track
+            display: block
+            width: 100%
+            cursor: pointer
+        &::-ms-track
+            display: block
+            width: 100%
+            cursor: pointer
+        &::-ms-fill-lower
+            display: block
+            width: 100%
+            cursor: pointer
+        &::-ms-fill-upper
+            display: block
+            width: 100%
+            cursor: pointer
+        &::-webkit-slider-thumb
+            -webkit-appearance: none
+            display: block
+            cursor: move
+        &::-moz-range-thumb
+            display: block
+            cursor: move
+        &::-ms-thumb
+            display: block
+            cursor: move
+    &__time
+        position: absolute
+        top: 50%
+        right: 0
+        transform: translateY(-50%)
+        font-size: 14px
+        line-height: 17px
+        color: #a1a1a1
+    &_style
+        &_time
+            &#{$p}
+                height: 20px
+            #{$p}
+                &__input
+                    height: 1px
+                    background-color: #979797
+                    &::-moz-range-track
+                        height: 1px
+                        background-color: #979797
+                    &::-ms-track
+                        height: 1px
+                        background-color: #979797
+                    &::-ms-fill-lower
+                        height: 1px
+                        background-color: #979797
+                    &::-ms-fill-upper
+                        height: 1px
+                        background-color: #979797
+                    &::-webkit-slider-thumb
+                        height: 20px
+                        width: 12px
+                        background-color: #d8d8d8
+                        border-radius: 4.5px
+                    &::-moz-range-thumb
+                        height: 20px
+                        width: 12px
+                        background-color: #d8d8d8
+                        border-radius: 4.5px
+                    &::-ms-thumb
+                        height: 20px
+                        width: 12px
+                        background-color: #d8d8d8
+                        border-radius: 4.5px
+        &_volume
+            &#{$p}
+                height: 16px
+            #{$p}
+                &__input
+                    height: 4px
+                    background-color: rgba(#d8d8d8, 30%)
+                    border-radius: 2px
+                    &::-moz-range-track
+                        height: 4px
+                        background-color: rgba(#d8d8d8, 30%)
+                        border-radius: 2px
+                    &::-ms-track
+                        height: 4px
+                        background-color: rgba(#d8d8d8, 30%)
+                        border-radius: 2px
+                    &::-ms-fill-lower
+                        height: 4px
+                        background-color: rgba(#d8d8d8, 30%)
+                        border-radius: 2px
+                    &::-ms-fill-upper
+                        height: 4px
+                        background-color: rgba(#d8d8d8, 30%)
+                        border-radius: 2px
+                    &::-webkit-slider-thumb
+                        height: 16px
+                        width: 16px
+                        background-color: #605757
+                        border-radius: 50%
+                    &::-moz-range-thumb
+                        height: 16px
+                        width: 16px
+                        background-color: #605757
+                        border-radius: 50%
+                    &::-ms-thumb
+                        height: 16px
+                        width: 16px
+                        background-color: #605757
+                        border-radius: 50%
+
+/* Блок с холодильником */
+.card-app-fridge
+    display: flex
+    flex-wrap: wrap
+    &__btn:not(:last-child)
+        margin-right: 18px
+
++media(xs)
+    .card-app-fridge
+        justify-content: space-between
+        &__btn:not(:last-child)
+            margin-right: 0
